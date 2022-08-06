@@ -3,25 +3,31 @@ public class Main {
 
         ///Task 2
 
-        int clientDeviceYear = 2015;
-        int phoneVersion = 2;
-        if (clientDeviceYear < 2015) {
-            switch (phoneVersion) {
-                case 1:
-                    System.out.println("Установите облегченную версию приложения для iOS по ссылке");
-                    break;
-                case 2:
-                    System.out.println("Установите облегченную версию приложения для Android по ссылке");
-                    break;
-            }
+
+        int phoneVersion = 0;
+        if (phoneVersion == 1) {
+            System.out.println("Установите версию приложения для Android по ссылке");
         } else {
-            System.out.println("Ваше устройство подходит для программы");
+            System.out.println("Установите версию приложения для IOS по ссылке");
         }
+        int clientDeviceYear = 2014;
+        int targetYear = 2015;
+        if (clientDeviceYear < targetYear) {
+            System.out.print("Установите облегченную версию приложения для ");
+        } else {
+            System.out.print("Установите версию приложения для ");
+        }
+        if (phoneVersion == 1) {
+            System.out.println("Android по ссылке");
+        } else {
+            System.out.println("IOS по ссылке");
+        }
+
 
         ///Task 3
 
         int year = 2021;
-        if (year % 4 == 0 || year % 400 == 0) {
+        if (year % 4 == 0 && 100 != 0 || year % 400 == 0 && 100 != 0) {
             System.out.println("Год високосный");
         } else {
             System.out.println("Год не високосный");
@@ -29,21 +35,16 @@ public class Main {
 
         ///Task 4 (Не придумал как сделать шаг по 40 дней, с этим заданием большие трудности)
 
-        int deliveryDistance = 50;
+        int deliveryDistance = 95;
         int day = 1;
-        if (deliveryDistance <= 20) {
-            day = day;
-            System.out.println("Доставка займет " + day + " день");
-        }else{
-            if (deliveryDistance >= 20 && deliveryDistance <= 60) {
-                day = day +1;
-                System.out.println("Доставка займет " + day + " дня");
-            }
-            if (deliveryDistance >= 60 && deliveryDistance <= 100) {
-                day = day +2;
-                System.out.println("Доставка займет " + day + " дня");
-            }
+        int interval = 40;
+        int startInterval = 20;
+        if (deliveryDistance <= startInterval) {
+            day = 1;
+        } else {
+            day = day + (int) Math.ceil((deliveryDistance - startInterval) / interval) + 1;
         }
+        System.out.println("Доставка займет " + day + " дня");
 
 
         ///Task 5
@@ -76,24 +77,18 @@ public class Main {
         ///Task 6 *
         int age = 19;
         int salary = 58_000;
-        if (age >= 23){
-            if (salary >= 50_000){
-                salary = (int) (salary * 1.2);
-            }
-            if (salary >= 80_000){
-                salary = (int) (salary * 1.5);}
+        if (age >= 23) {
             salary = salary * 3;
+        } else {
+            salary = salary * 2;
+        }
+        if (salary >= 50_000 || salary == 80_000) {
+            salary = (int) (salary * 1.2);
+            System.out.println("Мы готовы выдать вам кредитную карту с лимитом " + salary + " рублей");
+        } else {
+            salary = (int) (salary * 1.5);
             System.out.println("Мы готовы выдать вам кредитную карту с лимитом " + salary + " рублей");
         }
-        if (age < 23){
-            if (salary >= 50_000){
-                salary = (int) (salary * 1.2);}
-            if (salary >= 80_000){
-                salary = (int) (salary * 1.5);}
-            salary = salary *2;
-            System.out.println("Мы готовы выдать вам кредитную карту с лимитом " + salary + " рублей");
-        }
-
 
         ///Task 7 *
 
